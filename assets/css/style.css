@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: roboto, sans-serif;
+}
+
+/*inicio - body es el contenedor del displey grid*/
+body {
+    display: grid;
+    grid-template-rows: 50px 60px calc(100vh - 160px) 50px;
+    grid-template-areas:
+        'nav'
+        'search'
+        'main'
+        'footer';
+}
+/*fin del body*/
+/*inicio - nav con elementos ordenados en flex*/
+nav {
+    grid-area: nav;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+nav>img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 45px;
+}
+
+.menu {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/*fin del nav*/
+/*inicio - search se ocupa etiqueta select en HTML se agrean mas con Option como hijos*/
+.search {
+    grid-area: search;
+    background-color: #bebebe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/*fin del search*/
+/*inicio de las card y botones de busqueda con overflow*/
+main {
+    grid-area: main;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.cardcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    border: .5px solid grey;
+    padding: 5px;
+}
+.card>img{
+    object-fit: contain;
+    height: 300px;
+    border-radius: 1rem;
+}
+.card>p{
+    margin: 5px 0;
+}
+.card>button{
+    margin: 5px 0;
+    width: 90%;
+    height: 30px;
+    border: none;
+    background-color: rgb(0, 64, 0);
+    color: #fff;
+}
+.paginas>button{
+    border: none;
+    height: 30px;
+    width: 40px;
+    background-color: #000;
+    color: #fff;
+}
+
+/*fin de las card*/
+/*Inicio - Footer, orden con flex*/
+footer {
+    grid-area: footer;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.fa-brands {
+    margin: 0 5px;
+}
+
+/*Fin - footer ordenado con informacion del emprendimiento*/
