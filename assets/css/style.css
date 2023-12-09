@@ -17,6 +17,7 @@ body {
         'main'
         'footer';
 }
+
 /*fin del body*/
 /*inicio - nav con elementos ordenados en flex*/
 nav {
@@ -39,6 +40,17 @@ nav>img {
     color: #fff;
 }
 
+.menu2 {
+    display: none;
+    color: #fff;
+}
+
+.menu2>ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
 /*fin del nav*/
 /*inicio - search se ocupa etiqueta select en HTML se agrean mas con Option como hijos*/
 .search {
@@ -49,6 +61,11 @@ nav>img {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
+}
+
+select {
+    height: 30px;
+    border: none;
 }
 
 /*fin del search*/
@@ -62,12 +79,19 @@ main {
     align-items: center;
     padding: 20px 0;
 }
-.cardcontainer{
+
+.cardcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    margin: 10px 0;
+    gap: 20px;
+    padding: 10px;
 }
-.card{
+
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,15 +100,20 @@ main {
     border: .5px solid grey;
     padding: 5px;
 }
-.card>img{
-    object-fit: contain;
+
+.card>img {
+    object-fit: cover;
+    object-position: center;
     height: 300px;
+    width: 240px;
     border-radius: 1rem;
 }
-.card>p{
+
+.card>p {
     margin: 5px 0;
 }
-.card>button{
+
+.card>button {
     margin: 5px 0;
     width: 90%;
     height: 30px;
@@ -92,7 +121,8 @@ main {
     background-color: rgb(0, 64, 0);
     color: #fff;
 }
-.paginas>button{
+
+.paginas>button {
     border: none;
     height: 30px;
     width: 40px;
@@ -117,3 +147,81 @@ footer {
 }
 
 /*Fin - footer ordenado con informacion del emprendimiento*/
+/*vista para tablet dos columnas edit en el busqueda lateral*/
+@media (min-width: 576px) {
+
+    /*modificacion layout tablet*/
+    body {
+        grid-template-rows: 50px calc(100vh - 100px) 50px;
+        grid-template-areas:
+            'nav nav'
+            'search main'
+            'footer footer';
+    }
+
+    .search {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 10px 10px;
+        width: 180px;
+    }
+
+    .menu>i {
+        display: none;
+    }
+
+    .menu2 {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
+}
+
+/*vista para desktop search queda en la parte superior, footer y nav quedan lateral, main ocupa mas espacio.*/
+@media (min-width: 992px) {
+    body {
+        grid-template-rows: 60px calc(100vh - 110px) 50px;
+        grid-template-areas:
+            'nav search'
+            'nav main'
+            'footer main';
+    }
+
+    .search {
+        justify-content: center;
+        width: calc(100vw - 160px);
+    }
+
+    .menu>i {
+        display: none;
+    }
+
+    /*acomodando menu2 vista tablet y pc*/
+    .menu2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .menu2>ul {
+        flex-direction: column;
+    }
+
+    .menu2>p {
+        padding-bottom: 50px;
+    }
+
+    /*fin menu2*/
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 150px;
+        gap: 10px;
+        padding-top: 20px;
+    }
+
+    /*logo mas grande*/
+    nav>img {
+        height: 140px;
+    }
+}
